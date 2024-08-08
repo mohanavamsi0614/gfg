@@ -124,7 +124,10 @@ export default function App() {
                         {/* <Route path="/dashboard" element={ <Pickle /> }></Route> */}
 
                         <Route path="/*" element={ <NotFound /> }></Route>
-                    </Routes>
+                        <Route path="/reg" element={<ProjectExpo/>}/> 
+                        <Route path="/rewg" element={<ProjectExpoRegister/>}/> 
+
+                                           </Routes>
                     </CSSTransition>
                 </TransitionGroup>
             {/* </Router> */}
