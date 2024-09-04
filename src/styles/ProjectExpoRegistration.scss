@@ -10,8 +10,42 @@
 
 $textWhite: rgb(230, 230, 230);
 
+.color {
+    &.green {
+        color: rgb(141, 227, 141);
+    }
+
+    &.blue {
+        color: rgb(98, 98, 255);
+    }
+
+    &.yellow {
+        color: rgb(242, 242, 110);
+    }
+
+    &.red {
+        color: rgb(239, 97, 97);
+    }
+
+    &.purple {
+        color: rgb(199, 119, 221);
+    }
+
+    &.orange {
+        color: rgb(255, 165, 0);
+    }
+
+    &.pink {
+        color: rgb(255, 105, 180);
+    }
+
+    &.cyan {
+        color: rgb(0, 255, 255);
+    }
+}
+
 .confirmModalBackground {
-    position: absolute;
+    position: fixed;
     height: 100vh;
     width: 100vw;
     top: 0;
@@ -26,18 +60,24 @@ $textWhite: rgb(230, 230, 230);
     .confirmModal {
         height: 80vh;
         width: min(700px, 70vw);
-        border-radius: 2rem;
         background-color: rgb(43, 43, 43);
         color: $textWhite;
         padding: 2rem;
-        padding-top: 0;
-        overflow: scroll;
+        overflow-y: auto;
 
         button.close {
-            margin: 0 !important;
-            margin-top: 2rem !important;
-            margin-left: auto !important;
-            padding: .4rem 1rem !important;
+            all: unset;
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            font-size: 1.5rem;
+            background-color: rgba(rgb(248, 142, 142), .4);
+            border-radius: 12px;
+            padding: .5rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
         }
 
         .heading {
@@ -72,9 +112,9 @@ $textWhite: rgb(230, 230, 230);
             }
         }
 
-        button {
+        .finalRegisterButton button {
             display: block;
-            margin: 2rem auto;
+            margin: 2rem auto !important;
             border-radius: 12px;
             border-style: none;
             padding: 1rem 2rem;
@@ -101,6 +141,18 @@ nav.projectExpoNav {
 
         svg {
             color: rgb(35, 26, 50);
+        }
+    }
+
+    .bigText {
+        max-width: max-content;
+        text-align: center;
+        font-size: 3rem;
+        color: $textWhite;
+        font-weight: 600;
+
+        &.projectExpoText {
+            font-family: "Supercharge";
         }
     }
 
@@ -135,12 +187,26 @@ nav.projectExpoNav {
     background-color: rgb(23, 16, 34);
     overflow-x: hidden;
 
+    label, h4 {
+        font-family: "Unbounded";
+        font-weight: 500;
+    }
+
     button {
         font-family: "Unbounded";
         position: relative;
         left: 50%;
         transform: translateX(-50%);
         margin-bottom: 6rem;
+
+        &:disabled {
+            opacity: .3;
+        }
+    }
+
+    select {
+        background-color: rgb(69, 68, 84) !important;
+        color: white !important;
     }
 
     .bigText {
@@ -158,7 +224,7 @@ nav.projectExpoNav {
     .titleText {
         max-width: max-content;
         margin: 0 auto;
-        margin-top: 1rem;
+        margin-top: 3rem;
         font-family: "Unbounded";
         font-size: 2rem;
         font-weight: 500;
@@ -187,12 +253,86 @@ nav.projectExpoNav {
             cursor: not-allowed;
         }
 
+        .accomodationDetails {
+
+            .textInputs {
+                margin-top: 2rem;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                gap: 1rem;
+
+                .inputGroup {
+                    flex: 1;
+                    display: flex;
+                    flex-direction: column;
+                    gap: .5rem;
+                }
+            }
+
+            .inputs {
+                margin-bottom: 3rem;
+            }
+
+            .dateAndTimeInput {
+                display: flex;
+                gap: 1rem;
+                margin-bottom: 3rem;
+
+                .input-group {
+                    flex: 1;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    width: 100%;
+
+                    input {
+                        width: 100%;
+                    }
+                }
+            } 
+        }
+
+
         .registrationInfo {
             display: flex;
             flex-direction: column;
             font-size: 1rem;
             margin: 0;
             margin-top: 1.5rem;
+
+            .team {
+                text-align: center;
+            }
+
+            button {
+                max-width: max-content;
+            }
+        }
+
+        .paymentSuccessInfo {
+            font-family: "Unbounded";
+            padding: 1rem 1.2rem;
+
+            max-width: max-content;
+            border-radius: 12px;
+            border: 1px solid rgba(white, .2);
+            margin: 1rem auto;
+            
+            display: flex;
+            gap: 1rem;
+
+            .title {
+                font-weight: 600;
+                margin-bottom: .5rem;
+            }
+
+            .icon {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                color: rgb(95, 228, 95);
+            }
         }
 
         .formGroup {
@@ -218,10 +358,77 @@ nav.projectExpoNav {
             }
         }
     }
+
+        
+    .payFeeDiv {
+        font-family: "Unbounded";
+
+        .title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            max-width: max-content;
+            margin: 0 auto 2rem auto;
+        }
+
+        .feeBreakdown {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+            margin: 0 auto;
+            margin-bottom: 4rem;
+            padding: 1rem;
+            max-width: min(400px, 90vw);
+            border: 4px dashed rgba(white, .2);
+            border-radius: 4px;
+
+            .row {
+                width: 100%;
+                padding: 1rem 0;
+                display: flex;
+
+                &.bold {
+                    font-weight: 700;
+                }
+                
+                &:first-child {
+                    border-bottom: 2px dashed rgba(white, .2);
+                }
+
+                &:last-child {
+                    border-top: 2px dashed rgba(white, .2);
+                    padding-bottom: .5rem;
+                }
+
+                .name {
+                    width: 60%;
+                    padding-left: 2rem;
+                }
+
+                .amount {
+                    width: 40%;
+                    display: flex;
+                    justify-content: flex-end;
+                    padding-right: 2rem;
+
+                    &.faded {
+                        opacity: .8;
+                    }
+                }
+            }
+        }
+    }
+
 }
 
 
 @media screen and (max-width: 700px) {
+
+    nav.projectExpoNav {
+        .bigText {
+            font-size: 1.6rem;
+        }
+    }
 
     .projectExpoRegistration {
         .bigText {
@@ -230,6 +437,14 @@ nav.projectExpoNav {
 
         .titleText {
             font-size: 1.5rem;
+        }
+
+        .inputs .textInputs {
+            flex-direction: column;
+
+            .inputGroup {
+                width: 100%;
+            }
         }
     }
 }

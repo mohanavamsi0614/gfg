@@ -5,8 +5,7 @@ import Main from "./pages/Main";
 import UnderConstruction from "./pages/UnderConstruction";
 import NotFound from "./pages/NotFound";
 import Meta from "./pages/Meta";
-
-
+import Student_enroll_form from "./views/HardcodedEventPages/Student_enroll_form";
 import Home from "./views/Home";
 import CoreTeam from "./views/CoreTeam";
 import TeamMember from "./views/TeamMember";
@@ -15,11 +14,11 @@ import AllMembers from "./views/AllMembers";
 import New from "./views/New";
 import EventRegister from "./views/EventRegister";
 import DynamicEventPage from "./views/DynamicEventPage";
-import Round5Register from "./views/RoadToMernRegister";
+import Round5Register from "./views/HardcodedEventPages/RoadToMernRegister";
 import Codeathon from "./views/Codeathon";
 import Login from "./views/Login";
 import Profile from "./views/Profile";
-
+import "./App.css"
 import { Routes, Route } from "react-router-dom";
 import { CSSTransition, TransitionGroup } from "react-transition-group"
 import { useEffect } from "react";
@@ -38,12 +37,10 @@ import SlotSuspend from "./views/SlotSuspend";
 import CodeHouse from "./views/CodeHouse";
 import Code from "./views/Code";
 
-import GeekFest24 from "./views/HardcodedEventPages/Geekfest24";
 import ProjectExpo from "./views/HardcodedEventPages/ProjectExpo";
 import ProjectExpoRegister from "./views/HardcodedEventPages/ProjectExpoRegistration";
-
+import StudentEnrollment from "./views/HardcodedEventPages/StudentEnrollment24-25"; 
 import Landing from "./views/Landing";
-
 import Pickle from "./views/Pickle";
 import NewEventRegister from "./views/NewEventRegister";
 import { ToastContainer } from "react-toastify";
@@ -59,15 +56,12 @@ export default function App() {
 
     return (
         <>
-            {/* <Router> */}
             <ToastContainer progressClassName="toastProgress" bodyClassName="toastBody" />
 
             <TransitionGroup component={null}>
                 <CSSTransition key={location.key} classNames="fade" timeout={300}>
                     <Routes>
                         <Route path="/" element={<Main />}>
-                            {/* <Route path="/" element={<Home />}></Route> */}
-                            {/* <Route path="/login" element={ <Login /> }></Route> */}
                             <Route path="/profile" element={ <Profile /> }></Route>
                             <Route path="/new" element={<New />}></Route>
                             {/* <Route path="/core" element={<CoreTeam />}></Route> */}
@@ -97,11 +91,13 @@ export default function App() {
                         {/* EVENTS */}
                         <Route path="/events/project-expo" element={ <ProjectExpo /> }></Route>
                         <Route path="/events/project-expo/register" element={ <ProjectExpoRegister /> }></Route>
+                        <Route path="/enrollment" element={ <StudentEnrollment /> }></Route>
+                        <Route path="/enrollment/form" element={<Student_enroll_form />}></Route>
 
                         
                         {/* PAST EVENTS */}
                         {/* <Route path="/events/codeathon" element={<NewEventRegister />}></Route> */}
-                        {/* <Route path="/events/algo2024" element={<EventRegister />}></Route> */}
+                        <Route path="/events/algo2024" element={<EventRegister />}></Route>
                         <Route path="/roadmap-to-mern-stack" element={<Round5Register />}></Route>
 
 
@@ -119,9 +115,7 @@ export default function App() {
                         <Route path="/:eventname/code" element={<CodeHouse />}>
                             <Route path="/:eventname/code" element={<Code />}></Route>
                         </Route>
-
                  
-                        {/* <Route path="/dashboard" element={ <Pickle /> }></Route> */}
 
                         <Route path="/*" element={ <NotFound /> }></Route>
                         <Route path="/reg" element={<ProjectExpo/>}/> 
@@ -130,7 +124,6 @@ export default function App() {
                                            </Routes>
                     </CSSTransition>
                 </TransitionGroup>
-            {/* </Router> */}
         </>
     );
 }
