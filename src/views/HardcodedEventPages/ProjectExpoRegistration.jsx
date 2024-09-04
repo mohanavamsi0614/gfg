@@ -28,7 +28,7 @@ export default function ProjectExpoRegistration() {
     const order = response.data;
 
     const options = {
-      key: 'rzp_live_QdGShimqqkNStv',
+      key: 'rzp_test_MBN7B4vWGiv12S',
       amount: order.amount,
       currency: 'INR',
       name: 'GFG ProjectEXPO',
