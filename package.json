@@ -15,7 +15,9 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@aws-sdk/client-s3": "^3.637.0",
     "ace-builds": "^1.32.6",
+    "aws-sdk": "^2.1688.0",
     "axios": "^1.5.1",
     "canvas-confetti": "^1.9.3",
     "dotenv": "^16.3.1",
@@ -49,6 +51,7 @@
     "@types/react": "^18.0.28",
     "@types/react-dom": "^18.0.11",
     "@vitejs/plugin-react": "^4.0.0",
+    "aws-s3": "^2.0.5",
     "eslint": "^8.38.0",
     "eslint-plugin-react": "^7.32.2",
     "eslint-plugin-react-hooks": "^4.6.0",
